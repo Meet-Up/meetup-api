@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: event_dates
+#
+#  id         :integer          not null, primary key
+#  event_id   :integer
+#  open_times :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  open_times: MyString
+
+two:
+  event_id: 1
+  open_times: MyString
