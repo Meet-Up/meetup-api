@@ -30,4 +30,8 @@ class Event < ActiveRecord::Base
   def to_param
     token
   end
+
+  def as_json(options={})
+    super({ except: :password_digest }.merge(options))
+  end
 end
