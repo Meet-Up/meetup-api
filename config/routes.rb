@@ -1,3 +1,3 @@
 MeetupApi::Application.routes.draw do
-  resources :events, only: [:show, :create, :update]
+  resources :events, except: [:index, :new, :edit]
 end
