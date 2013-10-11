@@ -56,6 +56,8 @@ GEM
       actionpack (>= 3.2.11)
       railties (>= 3.2.11)
       tzinfo (~> 0.3.31)
+    rails_config (0.3.3)
+      activesupport (>= 3.0)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -89,4 +91,5 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   rails (= 4.0.0)
   rails-api
+  rails_config
   sqlite3
