@@ -78,10 +78,13 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    timeliness (0.3.7)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
+    validates_timeliness (3.0.14)
+      timeliness (~> 0.3.6)
 
 PLATFORMS
   ruby
@@ -93,3 +96,4 @@ DEPENDENCIES
   rails-api
   rails_config
   sqlite3
+  validates_timeliness (~> 3.0)

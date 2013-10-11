@@ -9,9 +9,12 @@
 #  password_digest :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  token           :string(255)
 #
 
 class Event < ActiveRecord::Base
+  include Tokenable
+
   has_many :dates, class_name: 'EventDate', dependent: :delete_all
   accepts_nested_attributes_for :dates
 
@@ -23,4 +26,8 @@ class Event < ActiveRecord::Base
     less_than_or_equal_to: 24
   }
   validates :dates, length: { minimum: 1 }
+
+  def to_param
+    token
+  end
 end

@@ -10,6 +10,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'rails_config'
 
+gem 'validates_timeliness', '~> 3.0'
+
 group :development do
   gem 'annotate'
 end

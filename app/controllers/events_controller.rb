@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   end
 
   def set_event
-    @event = Event.find(params[:id]) rescue nil
+    @event = Event.find_by_token(params[:id]) rescue nil
     render_404 if @event.nil?
   end
 
