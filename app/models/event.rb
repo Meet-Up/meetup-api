@@ -32,6 +32,6 @@ class Event < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super({ except: :password_digest }.merge(options))
+    super({ include: :dates, except: :password_digest }.merge(options))
   end
 end
