@@ -12,7 +12,7 @@
 #
 
 class Event < ActiveRecord::Base
-  has_many :dates, class_name: 'EventDate'
+  has_many :dates, class_name: 'EventDate', dependent: :delete_all
   accepts_nested_attributes_for :dates
 
   has_secure_password validations: false

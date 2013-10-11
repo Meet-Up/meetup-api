@@ -11,4 +11,6 @@
 
 class EventDate < ActiveRecord::Base
   belongs_to :event
+
+  validates :open_times, length: {is: 48}
 end
