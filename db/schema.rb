@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011062833) do
+ActiveRecord::Schema.define(version: 20131012013536) do
+
+  create_table "availabilities", force: true do |t|
+    t.integer  "participant_id"
+    t.integer  "event_date_id"
+    t.string   "times"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "event_dates", force: true do |t|
     t.integer  "event_id"
@@ -32,5 +40,13 @@ ActiveRecord::Schema.define(version: 20131011062833) do
   end
 
   add_index "events", ["token"], name: "index_events_on_token"
+
+  create_table "participants", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -16,6 +16,8 @@ class Event < ActiveRecord::Base
   include Tokenable
 
   has_many :dates, class_name: 'EventDate', dependent: :delete_all
+  has_many :participants
+  has_many :availabilities, through: :participants
   accepts_nested_attributes_for :dates
 
   has_secure_password validations: false

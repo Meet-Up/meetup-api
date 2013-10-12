@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: availabilities
+#
+#  id             :integer          not null, primary key
+#  participant_id :integer
+#  event_date_id  :integer
+#  times          :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  event_date_id: 1
+  times: MyString
+
+two:
+  user_id: 1
+  event_date_id: 1
+  times: MyString
