@@ -13,6 +13,7 @@
 class Participant < ActiveRecord::Base
   include PasswordAuthenticable
 
+  validates :name, presence: true
   belongs_to :event
   has_many :availabilities
 
