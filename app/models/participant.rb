@@ -11,9 +11,12 @@
 #
 
 class Participant < ActiveRecord::Base
+  include PasswordAuthenticable
+
   belongs_to :event
   has_many :availabilities
 
-  has_secure_password validations: false
-  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  def as_json(options={})
+    super({ include: :availabilities }.merge(options))
+  end
 end

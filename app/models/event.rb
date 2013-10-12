@@ -14,14 +14,13 @@
 
 class Event < ActiveRecord::Base
   include Tokenable
+  include PasswordAuthenticable
 
   has_many :dates, class_name: 'EventDate', dependent: :delete_all
   has_many :participants
   has_many :availabilities, through: :participants
   accepts_nested_attributes_for :dates
 
-  has_secure_password validations: false
-  validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :title, presence: true
   validates :duration, numericality: {
     greater_than: 0,
@@ -34,6 +33,6 @@ class Event < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super({ include: :dates, except: :password_digest }.merge(options))
+    super({ include: :dates }.merge(options))
   end
 end
