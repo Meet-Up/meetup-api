@@ -8,6 +8,7 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = @event.participants.build(participant_params)
+    save_or_fail! @participant
   end
 
   private
@@ -23,6 +24,6 @@ class ParticipantsController < ApplicationController
 
   def participant_params
     params.require(:participant).permit(:name, :password,
-      availabilities_attributes: [:id, :times, :date])
+      availabilities_attributes: [:id, :times, :event_date_id])
   end
 end
