@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :check_password!, only: [:update, :destroy]
 
   def show
-    render json: @event
+    render json: @event.as_json.merge({ participants: @event.participants })
   end
 
   def create
