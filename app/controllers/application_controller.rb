@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     if entity.save
       render json: entity, status: 201
     else
-      render json: entity, status: :unprocessable_entity
+      render json: entity.errors, status: :unprocessable_entity
     end
   end
 
