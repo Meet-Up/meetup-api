@@ -15,6 +15,14 @@ class ApplicationController < ActionController::API
     head :no_content
   end
 
+  def save_or_fail!(entity)
+    if entity.save
+      render json: entity, status: 201
+    else
+      render json: entity, status: :unprocessable_entity
+    end
+  end
+
   private
   def set_headers
     origin_regex = Regexp.new(Settings.cors.origin_regex, Regexp::IGNORECASE)

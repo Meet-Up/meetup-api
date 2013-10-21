@@ -17,6 +17,8 @@ class Participant < ActiveRecord::Base
   belongs_to :event
   has_many :availabilities
 
+  accepts_nested_attributes_for :availabilities
+
   def as_json(options={})
     super({ include: :availabilities }.merge(options))
   end
