@@ -19,6 +19,8 @@ class Participant < ActiveRecord::Base
 
   accepts_nested_attributes_for :availabilities
 
+  default_scope { includes(:availabilities) }
+
   def as_json(options={})
     super({ include: :availabilities }.merge(options))
   end
