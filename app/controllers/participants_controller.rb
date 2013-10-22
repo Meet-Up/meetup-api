@@ -1,8 +1,10 @@
 class ParticipantsController < ApplicationController
   before_action :set_event
   before_action :set_participant, only: [:show, :update, :destroy]
+  before_action :check_password!, only: [:update, :destroy]
 
   def index
+    render json: @event.participants
   end
 
   def show
@@ -15,6 +17,8 @@ class ParticipantsController < ApplicationController
   end
 
   def update
+    @participant.assign_attributes(participant_params)
+    save_or_fail! @participant
   end
 
   def destroy
@@ -29,6 +33,11 @@ class ParticipantsController < ApplicationController
   def set_event
     @event = Event.find_by_token(params[:event_id]) rescue nil
     render_404 if @event.nil?
+  end
+
+  def check_password!
+    password = params[:participant].delete :password if params[:participant]
+    render_403 unless @participant.authenticate(password)
   end
 
   def participant_params

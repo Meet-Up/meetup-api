@@ -25,12 +25,12 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find_by_token(params[:id]) rescue nil
-    @password = params[:event].delete :current_password if params[:event]
     render_404 if @event.nil?
   end
 
   def check_password!
-    render_403 unless @event.authenticate(@password)
+    password = params[:event].delete :current_password if params[:event]
+    render_403 unless @event.authenticate(password)
   end
 
   def event_params
