@@ -13,7 +13,6 @@
 class Participant < ActiveRecord::Base
   include PasswordAuthenticable
 
-  validates :name, presence: true
   belongs_to :event
   has_many :availabilities
 
@@ -21,7 +20,16 @@ class Participant < ActiveRecord::Base
 
   default_scope { includes(:availabilities) }
 
+  validates :name, presence: true
+  validate :all_dates_have_availabilities
+
   def as_json(options={})
     super({ include: :availabilities }.merge(options))
+  end
+
+  def all_dates_have_availabilities
+    if event.dates.length != availabilities.length
+      errors.add(:availabilities, 'wrong number of availabilities')
+    end
   end
 end
