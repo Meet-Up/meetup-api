@@ -2,6 +2,9 @@ class ParticipantsController < ApplicationController
   before_action :set_event
   before_action :set_participant, only: [:show, :update, :destroy]
 
+  def index
+  end
+
   def show
     render json: @participant
   end
@@ -12,6 +15,9 @@ class ParticipantsController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
   end
 
   private

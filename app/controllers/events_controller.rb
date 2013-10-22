@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update_attributes(event_params)
+    @event.assign_attributes(event_params)
     save_or_fail! @event
   end
 
