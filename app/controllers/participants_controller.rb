@@ -11,6 +11,9 @@ class ParticipantsController < ApplicationController
     save_or_fail! @participant
   end
 
+  def update
+  end
+
   private
   def set_participant
     @participant = Participant.find(params[:id]) rescue nil
