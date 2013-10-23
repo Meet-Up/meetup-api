@@ -27,4 +27,4 @@ and run the development server with
 
 ```
 rails s
-```.
+```
