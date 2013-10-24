@@ -3,7 +3,7 @@ module PasswordAuthenticable
 
   included do
     has_secure_password validations: false
-    validates :password, presence: true, length: { minimum: 6 }, on: :create
+    validates :password, presence: true, length: { minimum: 4 }, on: :create
   end
 
   def as_json(options={})
