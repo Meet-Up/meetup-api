@@ -21,6 +21,15 @@ class EventsController < ApplicationController
     head :no_content
   end
 
+  def time_selection
+    @rows_number = params[:rows_number].to_i rescue nil
+    @columns_number = params[:columns_number].to_i rescue nil
+    if @rows_number.nil? || @columns_number.nil? || @rows_number == 0 || @columns_number == 0
+      render json: { error: 'invalid arguments' }
+    end
+    render
+  end
+
   private
 
   def set_event
