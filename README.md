@@ -23,6 +23,12 @@ cd meetup-api
 bundle install
 ```
 
+Setup the development database
+
+```
+rake db:migrate
+```
+
 and run the development server with
 
 ```
