@@ -1,0 +1,5 @@
+cors:
+  origin_regex: https?://(www.)?meetapp.jp
+
+security:
+  token_length: 20
