@@ -7,6 +7,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'rails_config'
 gem 'validates_timeliness', '~> 3.0'
 
+gem 'rb-readline', require: false
+
 group :development do
   gem 'annotate'
 end
